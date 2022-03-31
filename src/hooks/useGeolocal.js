@@ -3,38 +3,42 @@ import axios, { Axios } from 'axios'
 
 const useGeolocal = (address) => {
 
-    const [position, setPosition] = React.useState([])
-    // const API = `http://api.positionstack.com/v1/forward?access_key=0da933893b180b718b09ed48f168ee14&query=${address}`
+    const [position, setPosition] = React.useState({})
+    const API = `http://api.positionstack.com/v1/forward?access_key=0da933893b180b718b09ed48f168ee14&query=${address}`
 
     useEffect(()=>{
       console.log('a')
-      fetch(`http://api.positionstack.com/v1/forward?access_key=0da933893b180b718b09ed48f168ee14&query=${address}`)
-        .then(response => response.json())
-        .then(data => setPosition(data.data[0]))
+      let isMounted = true
 
-        console.log(position)
+      async function getPosition (){
+              try{
+                const values = await fetch(API);
+                const response = await values.json()
+                console.log(response)
+                if(isMounted){
+
+                setPosition(response.data[0])
+                console.log(position)
+                }
+    
+              }catch (e){
+                console.error(e)
+              }
+            }
+            getPosition();
+            return ()=>{
+              isMounted = false
+            }
+
     },[])
 
-    // useEffect(async ()=>{
-    //     // async function getPosition (){
-    //     //   try{
-    //     //     const values = await axios(`http://api.positionstack.com/v1/forward?access_key=0da933893b180b718b09ed48f168ee14&query=maracaibo`);
-            
+    return {position}
 
-    //     //     setPosition(values.data);
-
-    //     //   }catch (e){
-    //     //     console.error(e)
-    //     //   }
-    //     // }
-    //     // getPosition();
-    //     const response = await axios(`http://api.positionstack.com/v1/forward?access_key=0da933893b180b718b09ed48f168ee14&query=maracaibo`)
-    //     setPosition(response.data[0])
-    //   },[])
-  
-
-    debugger
-    return {position};
-}
+    // useEffect(async () => {
+    //   const response = await axios(API);
+    //   setMap(response.data.results[0].geometry.location);
+    // }, []);
+    // return map;
+};
 
 export default useGeolocal

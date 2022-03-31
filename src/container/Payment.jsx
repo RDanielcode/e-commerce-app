@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import AppContext from '../context/AppContext'
 import {PayPalButton} from 'react-paypal-button-v2'
 import '../styles/components/Payment.css'
+import useGeolocal from '../hooks/useGeolocal'
 
 const Payment = () => {
-  const {state, addOrder} = React.useContext(AppContext)
+  const {state, addOrder, addAddress} = React.useContext(AppContext)
   const {cart, buyer} = state
   const navigate = useNavigate()
+  const {position} = useGeolocal(buyer[0].city)
+  
 
   const paypalOptions = {
     clientId: 'AQeuKA8NczXeQpzfICUkX_sLRHZNsbKSgQEIWdHxG4n104nRz97cfm0tVzPBGr4iXrUN6q7MnkqejLLA',
@@ -38,6 +41,7 @@ const Payment = () => {
       }
       
       addOrder(newOrder)
+      addAddress(position)
       navigate('/checkout/success')
       // history.push('/checkout/success')
     }

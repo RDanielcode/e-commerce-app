@@ -2,8 +2,6 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import AppContext from '../context/AppContext'
 import useInitialState from '../hooks/useInitialState'
-// import {Home, Checkout, Info, Payment, Success, NotFound} from '../container'
-
 import Home from '../container/Home'
 import Checkout from '../container/Checkout'
 import Info from '../container/Info'
@@ -14,10 +12,11 @@ import Layout from '../components/Layout';
 
 
 const App = () => {
-    const {state, addToCart, removeFromCart, addToBuyer, addOrder, position} = useInitialState()
+    const {state, addToCart, removeFromCart, addToBuyer, addOrder, addAddress} = useInitialState()
+    // const {position} = useGeolocal(state.buyer)
 
     return(
-        <AppContext.Provider value={{state, addToCart, removeFromCart, addToBuyer, addOrder, position}}>
+        <AppContext.Provider value={{state, addToCart, removeFromCart, addToBuyer, addOrder, addAddress}}>
             <BrowserRouter>
                 <Layout>
                     <Routes>

@@ -17,9 +17,10 @@ const Map = ({data}) => {
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-    console.log('latitude='+data)
-    const metrics = [data.latitude, data.longitude]
+    console.log('success'+data)
+    const metrics = [data[0].latitude, data[0].longitude]
 
+  
   return (
     <MapContainer center={metrics} zoom={13} scrollWheelZoom={false} style={{width: '100%',height: '400px'}}
     >
