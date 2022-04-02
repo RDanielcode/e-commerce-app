@@ -4,7 +4,8 @@ import axios, { Axios } from 'axios'
 const useGeolocal = (address) => {
 
     const [position, setPosition] = React.useState({})
-    const API = `http://api.positionstack.com/v1/forward?access_key=0da933893b180b718b09ed48f168ee14&query=${address}`
+    const KEY = process.env.API_KEY;
+    const API = `http://api.positionstack.com/v1/forward?access_key=${KEY}&query=${address}`
 
     useEffect(()=>{
       console.log('a')

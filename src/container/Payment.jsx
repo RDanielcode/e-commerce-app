@@ -13,7 +13,7 @@ const Payment = () => {
   
 
   const paypalOptions = {
-    clientId: 'AQeuKA8NczXeQpzfICUkX_sLRHZNsbKSgQEIWdHxG4n104nRz97cfm0tVzPBGr4iXrUN6q7MnkqejLLA',
+    clientId: process.env.REACT_APP_CLIENT_ID,
     intent:'capture',
     currency:'USD'
   }

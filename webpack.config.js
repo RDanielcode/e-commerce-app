@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
+const DotenvPlugin = require('dotenv-webpack')
+
 
 module.exports = {
   entry: './src/index.js',
@@ -43,6 +45,11 @@ module.exports = {
         test: /\.s?css$/,
         use: [MiniCssPlugin.loader, 'css-loader', 'sass-loader'],
       },
+
+      {
+        test: /\.(gif|svg|jpg|png)$/,
+        loader: "file-loader",
+      }
     ],
   },
 
@@ -55,6 +62,8 @@ module.exports = {
     new MiniCssPlugin({
       filename: 'assets/[name].css',
     }),
+
+    new DotenvPlugin()
   ],
 
   devServer: {
