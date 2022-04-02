@@ -2,5 +2,4 @@
 package-lock.json
 
 .prettierrc
-.babelrc
 .eslintrc
