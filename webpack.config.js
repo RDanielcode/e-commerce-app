@@ -1,7 +1,10 @@
 const path = require('path');
+const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
-const DotenvPlugin = require('dotenv-webpack')
+require('dotenv').config()
+// const CopyPlugin = require('copy-webpack-plugin')
+// const DotenvPlugin = require('dotenv-webpack')
 
 
 module.exports = {
@@ -63,7 +66,21 @@ module.exports = {
       filename: 'assets/[name].css',
     }),
 
-    new DotenvPlugin()
+    // new DotenvPlugin(),
+
+		new webpack.DefinePlugin({
+			'process.env.REACT_APP_CLIENT_ID': JSON.stringify(process.env.REACT_APP_CLIENT_ID),
+      'process.env.API_KEY': JSON.stringify(process.env.API_KEY),
+			},
+		),
+
+  //   new CopyPlugin({
+  //     patterns: [{
+  //         from: path.resolve(__dirname, "src", "assets"),
+  //         to: "assets/images"
+  //     }
+  //     ]
+  //   })
   ],
 
   devServer: {
