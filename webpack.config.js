@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssPlugin = require('mini-css-extract-plugin');
 require('dotenv').config()
-// const CopyPlugin = require('copy-webpack-plugin')
 // const DotenvPlugin = require('dotenv-webpack')
 
 
@@ -74,13 +73,6 @@ module.exports = {
 			},
 		),
 
-  //   new CopyPlugin({
-  //     patterns: [{
-  //         from: path.resolve(__dirname, "src", "assets"),
-  //         to: "assets/images"
-  //     }
-  //     ]
-  //   })
   ],
 
   devServer: {

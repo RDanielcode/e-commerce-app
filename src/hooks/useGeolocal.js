@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import axios, { Axios } from 'axios'
+
 
 const useGeolocal = (address) => {
 
