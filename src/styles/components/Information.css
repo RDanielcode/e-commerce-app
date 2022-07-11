@@ -1,9 +1,10 @@
 .Information {
-    grid-template-columns: 3fr 1fr;
+    width: 70%;
+    grid-template-columns: minmax(560px, 750px) minmax(187px, 250px);
     grid-gap: 2rem;
     grid-row-gap: 1.5em;
     display: grid;
-    margin: 0 0 4em 0;
+    margin: 0 auto 4em auto;
   }
   .Information-buttons {
     display: flex;
@@ -12,6 +13,7 @@
   }
   .Information-sidebar {
     margin: 10px 0 0 0;
+    font-size: 0.8em;
   }
   .Information-back {
     margin: 10px 0 0 0;
@@ -90,3 +92,13 @@
       display: block;
       outline: none;
   }
+
+@media (max-width: 730px){
+  .Information {
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 2rem;
+    grid-row-gap: 1.5em;
+    display: grid;
+    margin: 0 1em 4em 1em;
+  }
+}

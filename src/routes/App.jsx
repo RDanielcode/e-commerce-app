@@ -9,6 +9,7 @@ import NotFound from '../container/NotFound'
 import Success from '../container/Success'
 import Payment from '../container/Payment'
 import Layout from '../components/Layout';
+import '../styles/components/App.css'
 
 
 const App = () => {

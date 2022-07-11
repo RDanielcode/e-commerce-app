@@ -1,9 +1,15 @@
-body {
+*{
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-body #App {
-  font-size: 30px;
-  color: #a2a2d3;
-}
+/* .Main {
+  padding: 0px;
+  grid-template-columns: minmax(auto, 768px);
+  display: grid;
+  justify-content: center;
+  width: 100%;
+ } */
 /*# sourceMappingURL=App.css.map */

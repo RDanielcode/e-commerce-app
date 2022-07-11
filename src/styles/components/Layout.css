@@ -7,9 +7,9 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.Main {
+/* .Main {
   padding: 10px;
   grid-template-columns: minmax(auto, 768px);
   display: grid;
   justify-content: center;
-}
+} */
