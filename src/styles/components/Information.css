@@ -1,10 +1,9 @@
 .Information {
-    width: 70%;
     grid-template-columns: minmax(560px, 750px) minmax(187px, 250px);
     grid-gap: 2rem;
     grid-row-gap: 1.5em;
     display: grid;
-    margin: 0 auto 4em auto;
+    margin: 0 0 4em 0;
   }
   .Information-buttons {
     display: flex;
